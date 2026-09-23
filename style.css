@@ -293,10 +293,78 @@ body {
     display: block;
 }
 
+/* Video Frame Black Background fix */
+.photo-frame video {
+    background-color: #000000;
+}
+
+/* Children Love Section Card styling */
+.children-love-section {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 40px 30px;
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(255, 71, 126, 0.15);
+    width: 100%;
+    max-width: 750px;
+    border: 2px solid rgba(255, 182, 193, 0.6);
+    text-align: center;
+    margin-bottom: 40px; /* Gives breathing room at the bottom of the page */
+}
+
+.children-love-section h2 {
+    color: #ff477e;
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 1px;
+}
+
+.tribute-box {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Creates clean spacing between each child's block */
+}
+
+.child-tribute {
+    font-size: 1.05rem;
+    line-height: 2;
+    color: #555555;
+    background: rgba(255, 240, 243, 0.5);
+    padding: 15px;
+    border-radius: 15px;
+    border-left: 4px solid #ff477e;
+    text-align: center;
+}
+
+/* Individual sentence blocks spacing */
+.child-tribute span {
+    display: inline-block;
+    margin-right: 12px;
+    font-weight: 600;
+    white-space: nowrap; /* Keeps each sentence clean on mobile devices */
+    transition: transform 0.2s ease, color 0.2s ease;
+    cursor: default;
+}
+
+/* Glow/Pop effect when hovering over the statements */
+.child-tribute span:hover {
+    transform: scale(1.1);
+    color: #ff477e;
+}
+
+/* Color adjustments to keep it looking luxurious */
+.child-tribute:nth-child(even) {
+    border-left-color: #ff7096;
+    background: rgba(255, 245, 247, 0.6);
+}
+
 /* Responsiveness Adaptations */
 @media (max-width: 600px) {
     .floating-banner h1 { font-size: 1.1rem; }
     .love-letter-card { padding: 30px 20px; }
     .letter-version p { font-size: 1rem; line-height: 1.7; }
     .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .children-love-section h2 { font-size: 1.3rem; }
+    .child-tribute { font-size: 0.9rem; padding: 10px; }
 }
