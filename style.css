@@ -1,4 +1,136 @@
-/* Add this at the bottom of your style.css file */
+/* General Reset & Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #ffeef2 0%, #ffd1dc 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* Floating Banner Animation */
+.floating-banner {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px 30px;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
+    margin-top: 20px;
+    margin-bottom: 40px;
+    animation: floatAnimation 4s ease-in-out infinite;
+    text-align: center;
+    border: 2px solid #ffb6c1;
+}
+
+.floating-banner h1 {
+    color: #ff477e;
+    font-size: 1.8rem;
+    white-space: nowrap;
+}
+
+@keyframes floatAnimation {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* Layout Container */
+.container {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Login Card Section */
+.login-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ffe4e1;
+}
+
+.login-card h2 {
+    color: #4a4a4a;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.8rem;
+    letter-spacing: 5px; 
+    text-align: center;
+    border: 2px solid #ffd1dc;
+    border-radius: 12px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background-color: #fffafb;
+    text-transform: lowercase; 
+}
+
+.input-group input:focus {
+    border-color: #ff477e;
+}
+
+.login-card button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(90deg, #ff477e, #ff7096);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 71, 126, 0.4);
+}
+
+.error-msg {
+    color: #ff3333;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+/* JavaScript Hidden/Reveal Handling states */
+.hidden-content {
+    display: none;
+    opacity: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.hidden-content.reveal-content {
+    display: flex;
+    opacity: 1;
+}
 
 /* Love Letter Card Styles */
 .love-letter-card {
@@ -46,13 +178,73 @@
     margin: 30px 0;
 }
 
-/* Adjustments for smaller screens */
+/* Optimized Photo & Video Gallery Section */
+.gallery-section {
+    width: 100%;
+    text-align: center;
+}
+
+.gallery-section h3 {
+    color: #ff7096;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* Individual Asset Grid Frames */
+.photo-frame {
+    aspect-ratio: 1 / 1;
+    background-color: #fff0f3;
+    border: 2px solid #ffb6c1;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-frame:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 71, 126, 0.2);
+}
+
+/* Image Fitting Styles */
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Video Fitting Styles */
+.photo-frame video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #000000;
+    display: block;
+}
+
+/* Responsive Rules for Phones */
 @media (max-width: 600px) {
+    .floating-banner h1 {
+        font-size: 1.2rem;
+    }
     .love-letter-card {
         padding: 20px;
     }
     .letter-version p {
         font-size: 0.95rem;
         line-height: 1.6;
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
